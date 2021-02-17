@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np 
 def plot (all_labels):
     totalCount = len(all_labels)
-    posCount=all_labels.count("pos")
-    negCount = all_labels.count("neg")
+    posCount=all_labels.count(1)
+    negCount = all_labels.count(0)
     
     data = {"pos:{}".format(posCount):posCount,"neg:{}".format(negCount):negCount} 
     sentiments = list(data.keys()) 

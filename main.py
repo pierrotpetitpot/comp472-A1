@@ -47,3 +47,4 @@ x_test = features[split:]
 y_train = labels[:split]
 y_test = labels[split:]
 
+plot(y_train)
