@@ -5,40 +5,45 @@ import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
 import numpy as np
 from sklearn.metrics import mean_squared_error
-from nb import nb
 from plotting import plot
+import string
+import collections
+
 
 split = 0
 wordcount = 54090
 instancescount = 11914
 
-# docs = []
-# labels = []
-# with open("all_sentiment_shuffled.txt", encoding='utf-8') as f:
-#     for line in f:
-#         words = line.strip().split()
-#         docs.append(words[3:])
-#         labels.append(words[1])
-
-# all_docs = docs
-# all_labels = labels
-
-
-#plot(all_labels)
-#nb(all_docs,all_labels)
-
 labels = []
-features [[0]*wordcount for _ in range(instancescount)]
+features = [[0]*wordcount for _ in range(instancescount)]
+word_hash = collections.defaultdict(int)
 
 i=0
-for j, line in enumerate(open("all_sentiment_shuffled.txt", encoding='utf-8')):
-    line = line.split()
-    if line[1]=='pos':
-        labels.append(1)
-    else:
-        labels.append(0)
-    
-    line = line [3:]
-    for w in line:
-        w= w.translate (str.maketrans('', '', string.punctuation))
+with open("all_sentiment_shuffled.txt", encoding='utf8') as f:
+
+    for j, line in enumerate(f):
+        line = line.split()
+        if line[1]=='pos':
+            labels.append(1)
+        else:
+            labels.append(0)
+        
+        line = line [3:]
+        for w in line:
+            w= w.translate (str.maketrans('', '', string.punctuation)) #TODO maybe discard numbers
+        if w:
+            if w not in word_hash:
+                features[j][i] +=1
+                word_hash[w] = i
+                i += 1
+            else:
+                features[j][word_hash[w]] +=1
+
+f.close()
+split = int(0.8 * len(labels))
+
+x_train = features[:split]
+x_test = features[split:]
+y_train = labels[:split]
+y_test = labels[split:]
 
