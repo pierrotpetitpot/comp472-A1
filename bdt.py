@@ -1,5 +1,4 @@
 from sklearn.tree import DecisionTreeClassifier
-from data helper import pre_process, plot, write_stats
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 
 x_train, x_test, y_train, y_test = pre_process(open('all_sentiment_shuffled.txt', encoding="utf8"))
@@ -32,6 +31,3 @@ model.fit(x_train, y_train)
 y_pred = model.predict(x_test)
 
 write_stats(y_pred, y_test, 'BDT-Sentiment.txt')
-
-
-                               )
