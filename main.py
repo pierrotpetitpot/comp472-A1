@@ -14,6 +14,7 @@ with open("all_sentiment_shuffled.txt", encoding='utf-8') as f:
         docs.append(words[3:])
         labels.append(words[1])
 
+
 all_docs = docs
 all_labels = labels
 
@@ -25,9 +26,10 @@ eval_labels = all_labels[split_point:]
 
 
 
-print (len(train_labels))
-print (all_docs[0])
-print(all_labels[0])
+# print (len(train_labels))
+# print (all_docs[0])
+# print(all_labels[0])
+
 
 
 
