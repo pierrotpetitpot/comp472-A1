@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
 import numpy as np
 from sklearn.metrics import mean_squared_error
+from nb import nb
+from plotting import plot
 
 docs = []
 labels = []
@@ -17,17 +19,7 @@ with open("all_sentiment_shuffled.txt", encoding='utf-8') as f:
 all_docs = docs
 all_labels = labels
 
-split_point = int(0.80*len(all_docs))
-train_docs = all_docs[:split_point]
-train_labels = all_labels[:split_point]
-eval_docs = all_docs[split_point:]
-eval_labels = all_labels[split_point:]
-
-
-
-print (len(train_labels))
-print (all_docs[0])
-print(all_labels[0])
-
+#plot(all_labels)
+nb(all_docs,all_labels)
 
 
