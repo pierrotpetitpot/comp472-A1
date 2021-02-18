@@ -2,13 +2,12 @@ from __future__ import division
 from codecs import open
 import pandas as pd
 import matplotlib.pyplot as plt  
-from sklearn.naive_bayes import GaussianNB
 import numpy as np
-from sklearn.metrics import mean_squared_error
 from plotting import plot
 import string
 import collections
-
+from bdt import bdtRun
+from nb import nbRun
 
 split = 0
 wordcount = 54090
@@ -47,4 +46,7 @@ x_test = features[split:]
 y_train = labels[:split]
 y_test = labels[split:]
 
-plot(y_train)
+#plot(y_train)
+nbRun(x_train,x_test,y_train,y_test,split)
+#dtRun(x_train,x_test,y_train,y_test,split)
+#bdtRun(x_train,x_test,y_train,y_test,split)
