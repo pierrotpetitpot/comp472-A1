@@ -21,6 +21,7 @@ labels = []
 features = [[0]*wordcount for _ in range(instancescount)]
 word_hash = collections.defaultdict(int)
 
+
 # i is the count of unique words
 i=0
 
