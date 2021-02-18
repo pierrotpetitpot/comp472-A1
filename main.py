@@ -2,34 +2,67 @@ from __future__ import division
 from codecs import open
 import pandas as pd
 import matplotlib.pyplot as plt  
-from sklearn.naive_bayes import GaussianNB
 import numpy as np
-from sklearn.metrics import mean_squared_error
+from plotting import plot
+import string
+import collections
+from bdt import bdtRun
+from nb import nbRun
+from dt import dtRun
 
-docs = []
+split = 0
+# we instantiate the matrix with these numbers for performance
+wordcount = 54090
+instancescount = 11914
+
 labels = []
+# features is an empty matrix where each row is the number of occurrence of an unique word
+# in the review
+features = [[0]*wordcount for _ in range(instancescount)]
+word_hash = collections.defaultdict(int)
+
+
+# i is the count of unique words
+i=0
+
 with open("all_sentiment_shuffled.txt", encoding='utf-8') as f:
-    for line in f:
-        words = line.strip().split()
-        docs.append(words[3:])
-        labels.append(words[1])
+# we go line by line
+    for j, line in enumerate(f):
+        # we split the line by words
+        line = line.split()
+        if line[1]=='pos':
+            labels.append(1)
+        else:
+            labels.append(0)
 
+        #line is the actual review
+        line = line [3:]
+        for w in line:
+            w= w.translate (str.maketrans('', '', string.punctuation))
+        if w:
+            #if the word is unique, we add it to the hash
+            if w not in word_hash:
+                features[j][i] +=1
+                word_hash[w] = i
+                i += 1
+            else:
+                # else we just add a count
+                features[j][word_hash[w]] +=1
 
-all_docs = docs
-all_labels = labels
+f.close()
+split = int(0.8 * len(labels))
 
-split_point = int(0.80*len(all_docs))
-train_docs = all_docs[:split_point]
-train_labels = all_labels[:split_point]
-eval_docs = all_docs[split_point:]
-eval_labels = all_labels[split_point:]
+x_train = features[:split]
+x_test = features[split:]
+y_train = labels[:split]
+y_test = labels[split:]
 
+print (len(x_train))
+print (len(x_test))
+print (len(y_train))
+print (len(y_test))
 
-
-# print (len(train_labels))
-# print (all_docs[0])
-# print(all_labels[0])
-
-
-
-
+#plot(y_train)
+#nbRun(x_train,x_test,y_train,y_test,split)
+dtRun(x_train,x_test,y_train,y_test,split)
+#bdtRun(x_train,x_test,y_train,y_test,split)
