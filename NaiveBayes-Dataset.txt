@@ -1,1 +1,15 @@
 Report from scikit learn:
+              precision    recall  f1-score   support
+
+         Neg       0.65      0.27      0.38      1230
+         Pos       0.52      0.85      0.64      1153
+
+    accuracy                           0.55      2383
+   macro avg       0.58      0.56      0.51      2383
+weighted avg       0.59      0.55      0.51      2383
+
+
+Displaying the confusion matrix:
+[[327 903]
+ [177 976]]
+Table with prediction and the instance position:

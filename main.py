@@ -23,7 +23,7 @@ word_hash = collections.defaultdict(int)
 # i is the count of unique words
 i=0
 
-with open("all_sentiment_shuffled.txt", encoding='utf8') as f:
+with open("all_sentiment_shuffled.txt", encoding='utf-8') as f:
 # we go line by line
     for j, line in enumerate(f):
         # we split the line by words
@@ -54,6 +54,11 @@ x_train = features[:split]
 x_test = features[split:]
 y_train = labels[:split]
 y_test = labels[split:]
+
+print (len(x_train))
+print (len(x_test))
+print (len(y_train))
+print (len(y_test))
 
 #plot(y_train)
 nbRun(x_train,x_test,y_train,y_test,split)

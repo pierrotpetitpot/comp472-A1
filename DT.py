@@ -1,16 +1,11 @@
 from sklearn.tree import DecisionTreeClassifier
-from main import *
+from results import write_stats
 
-# Pre process/Extract data
-x_train, x_test, y_train, y_test = pre_process(open('all_sentiment_shuffled.txt', encoding='utf8'))
+def dtRun (x_train,x_test,y_train,y_test,split):
+    # define DT clf
+    clf = DecisionTreeClassifier(criterion = 'entropy')
+    clf.fit(x_train, y_train)
+    y_pred = clf.predict(x_test)
 
-# plot the class counts
-plot(y_train + y_test)
-
-# define DT clf
-clf = DecisionTreeClassiFier(criterion = 'entropy')
-clf.fit(x_train, y_train)
-y_pref = cld.predict(x_test)
-
-# write stats to file
-write_stats(y_prod, y_test, 'DT.txt')
+    # write stats to file
+    write_stats(y_pred, y_test, 'DT.txt',split)
