@@ -14,5 +14,5 @@ def write_stats (y_pred, y_test, file, split):
     file.write(f'\n{np.array2string(confusion_matrix(y_test,y_pred))}')
 
     file.write ("\nTable with prediction and the instance position:")
-    file.write(f'\n{i}, {n}\n' for i, n in enumerate (y_pred,split))
+    file.write(''.join(f'\n{i}, {n}\n' for i, n in enumerate (y_pred,split)))
     file.close()
