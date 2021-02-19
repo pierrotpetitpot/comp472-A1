@@ -31,8 +31,8 @@ def bdtRun(x_train, x_test, y_train, y_test, split):
 
     # write_stats(y_pred, y_test, 'BestDecisionTree-dataset.txt',split)
     # define DT clf
-    clf = DecisionTreeClassifier(criterion='gini', max_depth=15000,
-            min_samples_leaf=3, min_samples_split=0.785,
+    clf = DecisionTreeClassifier(criterion='entropy', max_depth=15000,
+            min_samples_leaf=2, min_samples_split=0.785,
             splitter='random')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)

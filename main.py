@@ -8,7 +8,8 @@ import string
 import collections
 from bdt import bdtRun
 from nb import nbRun
-from dt import dtRun
+from DT import dtRun
+from bdt import bdtRun
 
 split = 0
 # we instantiate the matrix with these numbers for performance
@@ -64,5 +65,5 @@ print (len(y_test))
 
 #plot(y_train)
 #nbRun(x_train,x_test,y_train,y_test,split)
-dtRun(x_train,x_test,y_train,y_test,split)
-#bdtRun(x_train,x_test,y_train,y_test,split)
+#dtRun(x_train,x_test,y_train,y_test,split)
+bdtRun(x_train,x_test,y_train,y_test,split)
