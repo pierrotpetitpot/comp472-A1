@@ -2,7 +2,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from results import write_stats
 
-def bdtRun(x_train,x_test,y_train,y_test,split):
+
+def bdtRun(x_train, x_test, y_train, y_test, split):
     # model = DecisionTreeClassifier()
     # param_dict = {
     #     "criterion" : ['gini', 'entropy'],
@@ -29,11 +30,12 @@ def bdtRun(x_train,x_test,y_train,y_test,split):
     # y_pred = model.predict(x_test)
 
     # write_stats(y_pred, y_test, 'BestDecisionTree-dataset.txt',split)
-     # define DT clf
-    clf = DecisionTreeClassifier(criterion = 'entropy')
+    # define DT clf
+    clf = DecisionTreeClassifier(criterion='gini', max_depth=15000,
+            min_samples_leaf=3, min_samples_split=0.785,
+            splitter='random')
     clf.fit(x_train, y_train)
     y_pred = clf.predict(x_test)
 
     # write stats to file
-    write_stats(y_pred, y_test, 'BestDecisionTree-dataset.txt',split)
-    
+    write_stats(y_pred, y_test, 'BestDecisionTree-dataset.txt', split)
