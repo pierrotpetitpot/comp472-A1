@@ -8,62 +8,62 @@ import string
 import collections
 from bdt import bdtRun
 from nb import nbRun
-from DT import dtRun
+from dt import dtRun
 from bdt import bdtRun
 
-split = 0
-# we instantiate the matrix with these numbers for performance
-wordcount = 54090
-instancescount = 11914
+splitPoint = 0
 
-labels = []
-# features is an empty matrix where each row is the number of occurrence of an unique word
-# in the review
-features = [[0]*wordcount for _ in range(instancescount)]
-word_hash = collections.defaultdict(int)
+with open("all_sentiment_shuffled.txt", encoding='utf-8') as inFile:
 
+    #Limiting the array size for performance and building the array/word hash
+    wordCount = 55000
+    instancesCount = 11914 
+    allDocs = [[0]*wordCount for _ in range(instancesCount)]
+    wordHash = collections.defaultdict(int) 
+    allLabels = []
+    i=0
 
-# i is the count of unique words
-i=0
-
-with open("all_sentiment_shuffled.txt", encoding='utf-8') as f:
-# we go line by line
-    for j, line in enumerate(f):
+    #outer for loop iterating over each line in the file
+    for j, line in enumerate(inFile):
         # we split the line by words
         line = line.split()
-        if line[1]=='pos':
-            labels.append(1)
+        #getting the sentiment and appending it to its array
+        if line[1]=='neg':
+            allLabels.append(0)
         else:
-            labels.append(0)
-
-        #line is the actual review
+            allLabels.append(1)
+        #discarding the unwanted data and keeping the correct words
         line = line [3:]
-        for w in line:
-            w= w.translate (str.maketrans('', '', string.punctuation))
-        if w:
-            #if the word is unique, we add it to the hash
-            if w not in word_hash:
-                features[j][i] +=1
-                word_hash[w] = i
+        #inner for loop iterating over each word
+        for currentWord in line:
+            #removing non english words, numerical data and punctuation
+            currentWord= currentWord.translate (str.maketrans('', '', string.punctuation))
+            currentWord= ''.join([i for i in currentWord if not i.isdigit()])
+        if currentWord:
+            #Evaluating if current word was already present in another sentence    
+            if currentWord not in wordHash:
+                #if it was not we append to the word hash and increment its count within the sentence
+                allDocs[j][i] +=1
+                wordHash[currentWord] = i
                 i += 1
             else:
-                # else we just add a count
-                features[j][word_hash[w]] +=1
+                # else we just increment its count within the sentence
+                allDocs[j][wordHash[currentWord]] +=1
 
-f.close()
-split = int(0.8 * len(labels))
+inFile.close()
+#splitting the data between the training and evaluating data
+split = int(0.8 * len(allLabels))
 
-x_train = features[:split]
-x_test = features[split:]
-y_train = labels[:split]
-y_test = labels[split:]
+#assigning each data set to its desired variables
+trainingDocs = allDocs[:split]
+predictDocs = allDocs[split:]
+trainingLabels = allLabels[:split]
+predictLabels = allLabels[split:]
 
-print (len(x_train))
-print (len(x_test))
-print (len(y_train))
-print (len(y_test))
+#plotting the training data
+plot(trainingLabels)
 
-#plot(y_train)
-#nbRun(x_train,x_test,y_train,y_test,split)
-#dtRun(x_train,x_test,y_train,y_test,split)
-bdtRun(x_train,x_test,y_train,y_test,split)
+#running the three classifiers
+nbRun(trainingDocs,predictDocs,trainingLabels,predictLabels,split)
+dtRun(trainingDocs,predictDocs,trainingLabels,predictLabels,split)
+bdtRun(trainingDocs,predictDocs,trainingLabels,predictLabels,split)

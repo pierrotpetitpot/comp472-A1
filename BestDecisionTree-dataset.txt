@@ -1,17 +1,24 @@
 Report from scikit learn:
-              precision    recall  f1-score   support
-
-         Neg       0.71      0.13      0.22      1230
-         Pos       0.50      0.94      0.66      1153
-
-    accuracy                           0.52      2383
-   macro avg       0.61      0.54      0.44      2383
-weighted avg       0.61      0.52      0.43      2383
-
 
 Displaying the confusion matrix:
-[[ 162 1068]
- [  66 1087]]
+
+True Negatives , False Positives
+False Negatives , True Positives 
+
+[[ 178 1052]
+ [  74 1079]]
+
+Outputting all the metrics required (precision,recall, f1 score) and the count in each of the sentiments:
+
+              precision    recall  f1-score   support
+
+         Neg       0.71      0.14      0.24      1230
+         Pos       0.51      0.94      0.66      1153
+
+    accuracy                           0.53      2383
+   macro avg       0.61      0.54      0.45      2383
+weighted avg       0.61      0.53      0.44      2383
+
 Table with prediction and the instance position:
 9531, 1
 
@@ -91,7 +98,7 @@ Table with prediction and the instance position:
 
 9569, 1
 
-9570, 0
+9570, 1
 
 9571, 1
 
@@ -147,7 +154,7 @@ Table with prediction and the instance position:
 
 9597, 1
 
-9598, 1
+9598, 0
 
 9599, 1
 
@@ -167,7 +174,7 @@ Table with prediction and the instance position:
 
 9607, 1
 
-9608, 0
+9608, 1
 
 9609, 0
 
@@ -307,7 +314,7 @@ Table with prediction and the instance position:
 
 9677, 1
 
-9678, 1
+9678, 0
 
 9679, 1
 
@@ -317,7 +324,7 @@ Table with prediction and the instance position:
 
 9682, 0
 
-9683, 1
+9683, 0
 
 9684, 1
 
@@ -779,7 +786,7 @@ Table with prediction and the instance position:
 
 9913, 0
 
-9914, 1
+9914, 0
 
 9915, 1
 
@@ -971,7 +978,7 @@ Table with prediction and the instance position:
 
 10009, 1
 
-10010, 0
+10010, 1
 
 10011, 1
 
@@ -1079,7 +1086,7 @@ Table with prediction and the instance position:
 
 10063, 0
 
-10064, 1
+10064, 0
 
 10065, 1
 
@@ -1089,7 +1096,7 @@ Table with prediction and the instance position:
 
 10068, 1
 
-10069, 0
+10069, 1
 
 10070, 1
 
@@ -1231,9 +1238,9 @@ Table with prediction and the instance position:
 
 10139, 1
 
-10140, 1
+10140, 0
 
-10141, 1
+10141, 0
 
 10142, 1
 
@@ -1273,7 +1280,7 @@ Table with prediction and the instance position:
 
 10160, 1
 
-10161, 1
+10161, 0
 
 10162, 1
 
@@ -1485,7 +1492,7 @@ Table with prediction and the instance position:
 
 10266, 1
 
-10267, 1
+10267, 0
 
 10268, 1
 
@@ -1647,7 +1654,7 @@ Table with prediction and the instance position:
 
 10347, 1
 
-10348, 1
+10348, 0
 
 10349, 1
 
@@ -1867,7 +1874,7 @@ Table with prediction and the instance position:
 
 10457, 1
 
-10458, 1
+10458, 0
 
 10459, 1
 
@@ -2135,7 +2142,7 @@ Table with prediction and the instance position:
 
 10591, 1
 
-10592, 0
+10592, 1
 
 10593, 1
 
@@ -2467,7 +2474,7 @@ Table with prediction and the instance position:
 
 10757, 1
 
-10758, 1
+10758, 0
 
 10759, 1
 
@@ -2511,7 +2518,7 @@ Table with prediction and the instance position:
 
 10779, 1
 
-10780, 1
+10780, 0
 
 10781, 1
 
@@ -2615,7 +2622,7 @@ Table with prediction and the instance position:
 
 10831, 1
 
-10832, 1
+10832, 0
 
 10833, 1
 
@@ -2783,7 +2790,7 @@ Table with prediction and the instance position:
 
 10915, 1
 
-10916, 1
+10916, 0
 
 10917, 1
 
@@ -2805,7 +2812,7 @@ Table with prediction and the instance position:
 
 10926, 1
 
-10927, 1
+10927, 0
 
 10928, 1
 
@@ -2913,7 +2920,7 @@ Table with prediction and the instance position:
 
 10980, 0
 
-10981, 1
+10981, 0
 
 10982, 1
 
@@ -2949,7 +2956,7 @@ Table with prediction and the instance position:
 
 10998, 1
 
-10999, 1
+10999, 0
 
 11000, 1
 
@@ -3061,7 +3068,7 @@ Table with prediction and the instance position:
 
 11054, 1
 
-11055, 1
+11055, 0
 
 11056, 1
 
@@ -3093,7 +3100,7 @@ Table with prediction and the instance position:
 
 11070, 1
 
-11071, 1
+11071, 0
 
 11072, 1
 
@@ -3303,7 +3310,7 @@ Table with prediction and the instance position:
 
 11175, 1
 
-11176, 1
+11176, 0
 
 11177, 0
 
@@ -3375,7 +3382,7 @@ Table with prediction and the instance position:
 
 11211, 1
 
-11212, 1
+11212, 0
 
 11213, 1
 
@@ -3501,11 +3508,11 @@ Table with prediction and the instance position:
 
 11274, 1
 
-11275, 0
+11275, 1
 
 11276, 1
 
-11277, 1
+11277, 0
 
 11278, 1
 
@@ -3603,7 +3610,7 @@ Table with prediction and the instance position:
 
 11325, 1
 
-11326, 1
+11326, 0
 
 11327, 1
 
@@ -3779,7 +3786,7 @@ Table with prediction and the instance position:
 
 11413, 1
 
-11414, 1
+11414, 0
 
 11415, 1
 
@@ -3801,7 +3808,7 @@ Table with prediction and the instance position:
 
 11424, 1
 
-11425, 1
+11425, 0
 
 11426, 1
 
@@ -3851,7 +3858,7 @@ Table with prediction and the instance position:
 
 11449, 1
 
-11450, 0
+11450, 1
 
 11451, 1
 
@@ -4063,7 +4070,7 @@ Table with prediction and the instance position:
 
 11555, 1
 
-11556, 0
+11556, 1
 
 11557, 1
 
@@ -4079,13 +4086,13 @@ Table with prediction and the instance position:
 
 11563, 0
 
-11564, 1
+11564, 0
 
 11565, 1
 
 11566, 1
 
-11567, 1
+11567, 0
 
 11568, 1
 
@@ -4293,7 +4300,7 @@ Table with prediction and the instance position:
 
 11670, 0
 
-11671, 1
+11671, 0
 
 11672, 1
 
@@ -4513,7 +4520,7 @@ Table with prediction and the instance position:
 
 11780, 1
 
-11781, 1
+11781, 0
 
 11782, 1
 
@@ -4545,7 +4552,7 @@ Table with prediction and the instance position:
 
 11796, 1
 
-11797, 1
+11797, 0
 
 11798, 1
 
@@ -4719,7 +4726,7 @@ Table with prediction and the instance position:
 
 11883, 1
 
-11884, 1
+11884, 0
 
 11885, 1
 

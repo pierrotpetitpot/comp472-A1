@@ -1,17 +1,24 @@
 Report from scikit learn:
+
+Displaying the confusion matrix:
+
+True Negatives , False Positives
+False Negatives , True Positives 
+
+[[325 905]
+ [175 978]]
+
+Outputting all the metrics required (precision,recall, f1 score) and the count in each of the sentiments:
+
               precision    recall  f1-score   support
 
-         Neg       0.65      0.27      0.38      1230
+         Neg       0.65      0.26      0.38      1230
          Pos       0.52      0.85      0.64      1153
 
     accuracy                           0.55      2383
    macro avg       0.58      0.56      0.51      2383
 weighted avg       0.59      0.55      0.51      2383
 
-
-Displaying the confusion matrix:
-[[327 903]
- [177 976]]
 Table with prediction and the instance position:
 9531, 1
 
@@ -725,7 +732,7 @@ Table with prediction and the instance position:
 
 9886, 0
 
-9887, 1
+9887, 0
 
 9888, 0
 
@@ -1517,11 +1524,11 @@ Table with prediction and the instance position:
 
 10282, 1
 
-10283, 0
+10283, 1
 
 10284, 1
 
-10285, 0
+10285, 1
 
 10286, 1
 
@@ -1827,7 +1834,7 @@ Table with prediction and the instance position:
 
 10437, 0
 
-10438, 0
+10438, 1
 
 10439, 1
 
@@ -2165,7 +2172,7 @@ Table with prediction and the instance position:
 
 10606, 1
 
-10607, 0
+10607, 1
 
 10608, 1
 
@@ -2445,7 +2452,7 @@ Table with prediction and the instance position:
 
 10746, 1
 
-10747, 1
+10747, 0
 
 10748, 0
 
@@ -2939,7 +2946,7 @@ Table with prediction and the instance position:
 
 10993, 1
 
-10994, 0
+10994, 1
 
 10995, 1
 
@@ -3811,7 +3818,7 @@ Table with prediction and the instance position:
 
 11429, 1
 
-11430, 0
+11430, 1
 
 11431, 1
 

@@ -1,17 +1,24 @@
 Report from scikit learn:
+
+Displaying the confusion matrix:
+
+True Negatives , False Positives
+False Negatives , True Positives 
+
+[[979 251]
+ [795 358]]
+
+Outputting all the metrics required (precision,recall, f1 score) and the count in each of the sentiments:
+
               precision    recall  f1-score   support
 
-         Neg       0.55      0.79      0.65      1230
-         Pos       0.59      0.32      0.41      1153
+         Neg       0.55      0.80      0.65      1230
+         Pos       0.59      0.31      0.41      1153
 
     accuracy                           0.56      2383
    macro avg       0.57      0.55      0.53      2383
-weighted avg       0.57      0.56      0.54      2383
+weighted avg       0.57      0.56      0.53      2383
 
-
-Displaying the confusion matrix:
-[[976 254]
- [789 364]]
 Table with prediction and the instance position:
 9531, 0
 
@@ -137,7 +144,7 @@ Table with prediction and the instance position:
 
 9592, 0
 
-9593, 1
+9593, 0
 
 9594, 1
 
@@ -277,7 +284,7 @@ Table with prediction and the instance position:
 
 9662, 0
 
-9663, 1
+9663, 0
 
 9664, 0
 
@@ -653,7 +660,7 @@ Table with prediction and the instance position:
 
 9850, 1
 
-9851, 1
+9851, 0
 
 9852, 0
 
@@ -691,7 +698,7 @@ Table with prediction and the instance position:
 
 9869, 0
 
-9870, 1
+9870, 0
 
 9871, 0
 
@@ -1317,7 +1324,7 @@ Table with prediction and the instance position:
 
 10182, 0
 
-10183, 1
+10183, 0
 
 10184, 1
 
@@ -2095,7 +2102,7 @@ Table with prediction and the instance position:
 
 10571, 1
 
-10572, 1
+10572, 0
 
 10573, 0
 
@@ -2161,7 +2168,7 @@ Table with prediction and the instance position:
 
 10604, 0
 
-10605, 1
+10605, 0
 
 10606, 0
 
@@ -3185,7 +3192,7 @@ Table with prediction and the instance position:
 
 11116, 1
 
-11117, 0
+11117, 1
 
 11118, 0
 
@@ -3631,7 +3638,7 @@ Table with prediction and the instance position:
 
 11339, 1
 
-11340, 1
+11340, 0
 
 11341, 0
 
@@ -4523,7 +4530,7 @@ Table with prediction and the instance position:
 
 11785, 1
 
-11786, 1
+11786, 0
 
 11787, 1
 
@@ -4651,7 +4658,7 @@ Table with prediction and the instance position:
 
 11849, 1
 
-11850, 1
+11850, 0
 
 11851, 0
 
